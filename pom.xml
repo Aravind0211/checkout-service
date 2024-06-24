@@ -38,6 +38,27 @@
                     </execution>
                 </executions>
             </plugin>
+          <plugin>
+                <groupId>org.cyclonedx</groupId>
+                <artifactId>cyclonedx-maven-plugin</artifactId>
+                <version>2.4.0</version> <!-- Replace with the latest version -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>makeBom</goal>
+                        </goals>
+                        <configuration>
+                            <projectType>application</projectType>
+                            <schemaVersion>1.5</schemaVersion>
+                            <outputFormat>XML</outputFormat>
+                            <outputName>bom</outputName>
+                            <includeBomSerialNumber>false</includeBomSerialNumber>
+                            <includeLicenseText>false</includeLicenseText>
+                            <componentVersion>2.0.0</componentVersion>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
