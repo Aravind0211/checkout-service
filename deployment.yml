@@ -1,4 +1,4 @@
-stage('GENERATE K0s Deployment YAML') {
+ stage('GENERATE K0s Deployment YAML') {
             steps {
                 script {
                     def deploymentYamlContent = """
@@ -18,7 +18,7 @@ stage('GENERATE K0s Deployment YAML') {
                                              spec:
                                                  containers:
                                                      - name: checkout-service
-                                                       image: ${NEXUS_DOCKER_REPO}/account-service:1.0.1
+                                                       image: ${NEXUS_DOCKER_REPO}/checkout-service:c1
                                                        ports:
                                                            - containerPort: 8088
                                     """
