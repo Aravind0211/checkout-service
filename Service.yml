@@ -1,0 +1,20 @@
+ stage('GENERATE SERVICE Deployment YAML') {
+            steps {
+                script {
+                    def serviceYamlContent = """
+                                           apiVersion: v1
+                                           kind: Service
+                                           metadata:
+                                               name: checkout-service
+                                               namespace: default
+                                           spec:
+                                               selector:
+                                                   app: checkout-service
+                                               ports:
+                                                   - protocol: "TCP"
+                                                     port: 9096
+                                                     targetPort: 9000  
+                                         """
+                    writeFile file: 'checkout-deployment.yaml', text: serviceYamlContent
+                }
+            }
